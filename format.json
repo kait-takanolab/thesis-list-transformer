@@ -1,0 +1,52 @@
+{
+  "templates": {
+    "master-thesis":
+      "{author}：{title}、{journal}、Vol.{volume}、No.{number}、pp.{page}（{year}）"
+  },
+  "columns": [
+    {
+      "label": "author",
+      "description": "著者名",
+      "replaces": [
+        {
+          "from": "\n",
+          "to": "、"
+        },
+        {
+          "from": " ",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "label": "title",
+      "description": "論文題名"
+    },
+    {
+      "label": "journal",
+      "description": "収録刊行物"
+    },
+    {
+      "label": "volume",
+      "description": "巻数"
+    },
+    {
+      "label": "number",
+      "description": "号数"
+    },
+    {
+      "label": "page",
+      "description": "ページ",
+      "replaces": [
+        {
+          "from": " - ",
+          "to": "-"
+        }
+      ]
+    },
+    {
+      "label": "year",
+      "description": "出版年"
+    }
+  ]
+}
