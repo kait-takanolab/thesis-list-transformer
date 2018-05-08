@@ -1,0 +1,27 @@
+language: python
+
+os:
+  - linux
+  - osx
+
+python:
+  - '3.6'
+
+env:
+  global:
+    - BIN_NAME=tlt-$(uname | tr '[:upper:]' '[:lower:]')
+
+install:
+  - pip install pipenv
+  - pipenv install
+
+script:
+  - pipenv run pyinstaller tlt.py --onefile --name $BIN_NAME
+
+deploy:
+  provider: releases
+  api_key:
+    secure: VLeKhxW4DugckFjNAeJwyQdl1zgkwwwwEY46q1B0XBVjSZ8fwXLtFMgCw6+f7wFceHtFCbWL85LHKSSP/fmqoYbiHCEEDWhZ1KXEaFGSAg0dOcDeAEBWj8zT/LzO27QQ/PGZSnJO/qaTZ3gn9U6m3F8GX91Ld6SG7guIb0PhhsSOX+3y5ye+H8nd0Vi2gb+MbS7lpezSfvpP3CmmpzYMSqNibT86iKKaSx9JirbgVaeoIEqklhx3+JkAZ3Lp7ho8oEUmSHYkencVMRrwg8V7vpS1mJZOjSG0cCKOXeRCnQOXUQaKporvO2dXaPb6Pdn4W67P5cZh0TNKa6YNKhJUJiGunjgbMrBwWqdSh4LMurDd9fvMH9HQk+gVswOMd9RxoGLaSx8VnlqtHAF3kON1f0R7b8yoJjI+rCk3fz+9KZ/NWUEKNFYsNYM7fKSnTnB/FOus/VEaF6hm0zoDcspN6DVdiHhH1DLZ0c9w1P4SQaejYsYKyzRjCxmmEhl1dQRkaN+lu+Xa0CcyMhdEiXw5ZgW31TYW3AtNJ0+SzuHo94qhaglMMFyTtEwJ0RUIVlCuMqn//nTURVUFE0p2T1xFAzq9n5POA6wVgRMogMICeU6xGJIK+vyef+ZHYiOYi7xLBJz6DQw6OAjnCYEUJTvvzoke7pR7ayZpYX7w2fkNw7k=
+  file: dist/$BIN_NAME
+  on:
+    branch: master
