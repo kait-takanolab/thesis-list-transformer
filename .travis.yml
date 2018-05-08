@@ -17,6 +17,7 @@ install:
 
 script:
   - pipenv run pyinstaller tlt.py --onefile --name $BIN_NAME
+  - ls dist/$BIN_NAME
 
 deploy:
   provider: releases
