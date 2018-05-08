@@ -9,7 +9,7 @@ python:
 
 env:
   global:
-    - BIN_NAME=tlt-$(uname | tr '[:upper:]' '[:lower:]')
+    - BIN_NAME="tlt-$(uname | tr '[:upper:]' '[:lower:]')"
 
 install:
   - pip install pipenv
