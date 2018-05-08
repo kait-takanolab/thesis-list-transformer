@@ -3,10 +3,10 @@ language: python
 matrix:
   include:
     - os: linux
-      python: "3.6"
+      python: "3.6.5"
     - os: osx
       language: generic
-      env: PYTHON="3.6"
+      env: PYTHON="3.6.5"
 
 env:
   global:
