@@ -12,7 +12,7 @@ env:
     - BIN_NAME="tlt-${TRAVIS_OS_NAME}"
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew upgrade python; else true; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew upgrade python && python -m ensurepip; else true; fi
 
 install:
   - pip install pipenv
